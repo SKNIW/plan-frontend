@@ -54,6 +54,7 @@ export const Calendar = (props: CalendarProps) => {
       buttonText={{
         today: "Dzisiaj"
       }}
+      locale="es"
       headerToolbar={{
         start: "title",
         center: "",
