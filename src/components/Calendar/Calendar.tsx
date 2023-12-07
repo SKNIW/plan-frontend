@@ -1,9 +1,9 @@
+import { useEffect, useRef } from "react"
 import FullCalendar, { EventInput } from "@fullcalendar/react"
 import timeGridPlugin from "@fullcalendar/timegrid"
 import { CalendarEvent } from "../CalendarEvent"
 import { CalendarDayHeader } from "../CalendarDayHeader"
 import { useWindowSize } from "usehooks-ts"
-import { useEffect, useRef } from "react"
 
 export interface CalendarProps {
   timetable: Array<EventInput>

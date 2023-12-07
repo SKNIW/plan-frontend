@@ -1,8 +1,8 @@
+import { useEffect, useRef } from "react"
 import FullCalendar, { EventInput } from "@fullcalendar/react"
 import timeGridPlugin from "@fullcalendar/timegrid"
 import { CalendarDayHeader } from "../CalendarDayHeader"
 import { useWindowSize } from "usehooks-ts"
-import { useEffect, useRef } from "react"
 import { LecturerCalendarEvent } from "../LecturerCalendarEvent"
 
 export interface CalendarProps {
@@ -54,6 +54,7 @@ export const LecturerCalendar = (props: CalendarProps) => {
       buttonText={{
         today: "Dzisiaj"
       }}
+      locale="es"
       headerToolbar={{
         start: "title",
         center: "",
