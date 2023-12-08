@@ -1,4 +1,5 @@
 import SwitchSelector from "react-switch-selector"
+import { useSearchParams } from "react-router-dom"
 import classNames from "classnames"
 
 interface ClassGroupsProps {
@@ -9,13 +10,20 @@ interface ClassGroupsProps {
 export const ClassGroups = (props: ClassGroupsProps) => {
   const { groups, setGroup } = props
 
+  const [searchParams, setSearchParams] = useSearchParams()
+
   const options = groups?.map((group) => ({
     label: group,
     value: group,
     selectedBackgroundColor: "white"
   }))
 
+  const initialIndex = groups?.findIndex(
+    (group) => group === searchParams.get("group")
+  )
+
   const onChange = (newValue) => {
+    setSearchParams({ group: newValue })
     setGroup(newValue)
   }
   return (
@@ -31,6 +39,7 @@ export const ClassGroups = (props: ClassGroupsProps) => {
         <SwitchSelector
           onChange={onChange}
           options={options}
+          initialSelectedIndex={initialIndex}
           backgroundColor={"#EFF0F4"}
           selectedFontColor={"black"}
         />

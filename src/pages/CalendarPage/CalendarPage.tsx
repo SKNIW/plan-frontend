@@ -1,5 +1,5 @@
 import { Calendar } from "../../components/Calendar"
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import {
   useGetSpecialization,
   useGetSpecializationLegend,
@@ -14,6 +14,8 @@ import { ExportButton } from "../../components/ExportButton"
 
 export const CalendarPage = () => {
   const { id } = useParams()
+
+  const [searchParams] = useSearchParams()
 
   const {
     data,
@@ -47,7 +49,7 @@ export const CalendarPage = () => {
   )
 
   useEffect(() => {
-    setGroup(data?.data.timetable[0].group)
+    setGroup(searchParams.get("group") || data?.data.timetable[0].group)
   }, [data])
 
   const timetable = useMemo(() => {
